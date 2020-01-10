@@ -1,13 +1,22 @@
 <template>
   <div>
-    <nuxt />
+    <div id="navbar">
+      <div id="navbar__links">
+        <nuxt-link to="/">Home</nuxt-link>
+        <nuxt-link to="/videos">Videos</nuxt-link>
+        <nuxt-link to="/theatre">Theatre</nuxt-link>
+      </div>
+    </div>
+    <div id="main-container">
+      <nuxt />
+    </div>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -17,11 +26,52 @@ html {
   box-sizing: border-box;
 }
 
+#navbar {
+  height: 90px;
+  width: 100%;
+  background-color: #333;
+
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+#main-container {
+  max-width: 100vw;
+  margin-top: 4rem;
+}
+
+#navbar__links {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: end;
+  align-items: center;
+  gap: 3rem;
+
+  & a,
+  & a:visited {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: yellow;
+    }
+  }
+}
+
+#main-container,
+#navbar__links {
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .button--green {
